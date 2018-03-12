@@ -21,6 +21,15 @@ var entityCentres = {
 		individual: {x: w / 3.65, y: h / 3.3},
 	};
 
+var amountCenters = { 	
+	var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
+            Val1: {x: 250, y: h / 3 - 20}, 			
+            Val2: {x: 380, y: h / 3 + 200}, 			
+            Val3: {x: 480, y: h / 3 - 20}, 			
+            Val4: {x: 630, y: h / 3 + 200}, 			
+            Val5: {x: 750, y: h / 3 - 30} 			
+}; 
+
 var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
 
 var svgCentre = { 
@@ -48,6 +57,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
+		$("#view-by-amount").fadeOut(250); 
 		return total();
 		//location.reload();
 	}
@@ -57,6 +67,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeIn(1000);
+		$("#view-by-amount").fadeOut(250); 
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -65,6 +76,7 @@ function transition(name) {
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-donor-type").fadeIn(1000);
+		$("#view-by-amount").fadeOut(250); 
 		return donorType();
 	}
 	if (name === "group-by-money-source")
@@ -73,8 +85,21 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeIn(1000);
+		$("#view-by-amount").fadeOut(250); 
 		return fundsType();
 	}
+
+		
+	if (name === "group-by-amount") { 			
+           	 $("#initial-content").fadeOut(250); 			
+           	 $("#value-scale").fadeOut(250); 			
+           	 $("#view-party-type").fadeOut(250); 			
+           	 $("#view-source-type").fadeOut(250); 			
+           	 $("#view-donor-type").fadeOut(250); 			
+           	 $("#view-by-amount").fadeIn(1000); 			
+            	return amountTier();
+	}
+}
 
 function start() {
 
@@ -93,6 +118,8 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout);
+		.on("click", function(d) { 			
+                 window.open('http://google.com/search?q='+d.donor); }); 
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//	.text(function(d) { return d.donor; });
@@ -122,8 +149,8 @@ function partyGroup() {
 		.friction(0.8)
 		.charge(function(d) { return -Math.pow(d.radius, 2.0) / 3; })
 		.on("tick", parties)
-		.start()
-		.colourByParty();
+		.start();
+		
 }
 
 function donorType() {
@@ -140,6 +167,21 @@ function fundsType() {
 		.charge(function(d) { return -Math.pow(d.radius, 2.0) / 3; })
 		.on("tick", types)
 		.start();
+}
+
+function amountTier() { 	
+		
+        force.gravity(0) 			
+                .friction(0.8) 			
+                .charge(function(d) { return -Math.pow(d.radius, 2.0) / 3; }) 			
+	        .on("tick", tiers) 			
+                .start(); 			
+} 
+
+function tiers(t) { 			
+       	node.each(moveToTiers(t.alpha)); 			
+       	node.attr("cx", function(d) {return d.x; }) 			
+               .attr("cy", function(d) {return d.y; }); 			
 }
 
 function parties(e) {
@@ -211,15 +253,34 @@ function moveToParties(alpha) {
 	};
 }
 
-function moveToEnts(alpha) {
+function moveToTiers(alpha) {
 	return function(d) {
-		var centreY = entityCentres[d.entity].y;
-		if (d.entity === 'pub') {
-			centreX = 1200;
-		} else {
-			centreX = entityCentres[d.entity].x;
-		}
+		// var centreY = entityCentres[d.entity].y;
+        t1 = 5000000;
+        t2 =  750000;
+        t3 =  150000;
+        t4 =   50000;
 
+        if (d.value > t1){
+            centreX = amountCenters.tier1.x;
+            centreY = amountCenters.tier1.y;
+        }
+        if (d.value <= t1  && d.value > t2) {
+            centreX = amountCenters.tier2.x;
+            centreY = amountCenters.tier2.y;
+        }
+        if (d.value <= t2 && d.value > t3) {
+            centreX = amountCenters.tier3.x;
+            centreY = amountCenters.tier3.y;
+        }
+        if (d.value <= t3 && d.value > t4) {
+            centreX = amountCenters.tier4.x;
+            centreY = amountCenters.tier4.y;
+        }
+        if (d.value <= t4) {
+            centreX = amountCenters.tier5.x;
+            centreY = amountCenters.tier5.y;
+	}
 		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1;
 		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
 	};
@@ -236,6 +297,20 @@ function moveToFunds(alpha) {
 			centreX = entityCentres[d.entity].x + 60;
 			centreY = 380;
 		}
+		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1; 	
+
+                d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1; 			
+        }; 			
+} 			
+			
+function moveToEnts(alpha) { 			
+        return function(d) { 			
+                var centreY = entityCentres[d.entity].y; 			
+                if (d.entity === 'pub') { 			
+                        centreX = 1200; 			
+                } else { 			
+                        centreX = entityCentres[d.entity].x; 			
+                } 
 		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1;
 		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
 	};
@@ -345,7 +420,7 @@ function mouseover(d, i) {
 		.html(infoBox)
 			.style("display","block");
 	
-	
+	    responsiveVoice.speak("Donor's Name: " + donor + " " + "Total Value: " + amount); 
 	}
 
 function mouseout() {
@@ -356,6 +431,7 @@ function mouseout() {
 
 		d3.select(".tooltip")
 			.style("display", "none");
+	    responsiveVoice.cancel();
 		}
 
 $(document).ready(function() {
@@ -367,4 +443,16 @@ $(document).ready(function() {
 
 });
 
-
+$(document).ready(function() { 	
+ 
+  var oldSize = parseFloat($(".content").css('font-size')); 			
+  var newSize = oldSize  * 1.3; 			
+  $(".content").hover( 			
+    function() { 			
+     $(".content").animate({ fontSize: newSize}, 200); 			
+    }, 			
+	    function() { 			
+	    $(".content").animate({ fontSize: oldSize}, 200); 			
+   } 			
+ ); 			
+});

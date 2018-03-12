@@ -146,7 +146,17 @@ li {
     top: 30px; 			
 } 			
 			
-			
+.zoom {
+	transition: all .2s ease-in-out;
+	z-index: 0;
+	}
+	.zoom:hover {
+	transform: scale(1.25);
+	z-index: 2;
+	padding: 2px;
+	background-color: #8a92a0;
+	border: 2px solid black;
+} 			
 
 
 /* End of view */
@@ -268,4 +278,8 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .pure-button-active, .pure-button:active {
     color: rgb(0, 120, 231);
     color: #fff
+}
+.content{
+font-size:10pt;
+font-family:Arial,sans-serif;
 }

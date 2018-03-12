@@ -121,31 +121,39 @@ li {
     position: absolute; 			
 } 			
 			
-#Tier1, #Tier2, #Tier3, #Tier4, #Tier5{ 			
+#tier1, #tier2, #tier3, #tier4, #tier5{ 			
     position: absolute; 			
     width: 400px; 			
 } 						
-#Tier1{ 			
+#tier1{ 			
     left: 30px; 			
     top: 30px; 			
 } 			
-#Tier2{ 			
+#tier2{ 			
     left: 250px; 			
     top: 400px; 			
 } 			
-#Tier3{ 			
+#tier3{ 			
     left: 420px; 			
     top: 30px; 			
 } 			
-#Tier4{ 			
+#tier4{ 			
     left: 630px; 			
     top: 400px; 			
 } 			
-#Tier5{ 			
+#tier5{ 			
     left: 790px; 			
     top: 30px; 			
 } 			
-			
+
+/* var amountCenters = {
+	tier1: {x: 250, y: h / 3},
+	tier2: {x: 380, y: h / 3},
+	tier3: {x: 480, y: h / 3},
+	tier4: {x: 630, y: h / 3},
+	tier5: {x: 750, y: h / 3}
+}; */ 
+
 .zoom {
 	transition: all .2s ease-in-out;
 	z-index: 0;

@@ -116,6 +116,14 @@ li {
 #e { top: 435px;}
 #f { top: 648px; left: 575px; }
 
+/* var amountCenters = {
+        tier1: {x: 250, y: h / 3},
+    	tier2: {x: 380, y: h / 3 + 100},
+    	tier3: {x: 480, y: h / 3},
+    	tier4: {x: 630, y: h / 3 + 100},
+    	tier5: {x: 750, y: h / 3}
+}; */
+
 #view-by-amount{ 			
     display: none; 			
     position: absolute; 			

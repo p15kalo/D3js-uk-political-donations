@@ -116,6 +116,39 @@ li {
 #e { top: 435px;}
 #f { top: 648px; left: 575px; }
 
+#view-by-amount{ 			
+    display: none; 			
+    position: absolute; 			
+} 			
+			
+#1, #2, #3, #4, #5{ 			
+    position: absolute; 			
+    width: 400px; 			
+} 						
+#1{ 			
+    left: 30px; 			
+    top: 30px; 			
+} 			
+#2{ 			
+    left: 250px; 			
+    top: 400px; 			
+} 			
+#3{ 			
+    left: 420px; 			
+    top: 30px; 			
+} 			
+#4{ 			
+    left: 630px; 			
+    top: 400px; 			
+} 			
+#5{ 			
+    left: 790px; 			
+    top: 30px; 			
+} 			
+			
+			
+
+
 /* End of view */
 
 circle {

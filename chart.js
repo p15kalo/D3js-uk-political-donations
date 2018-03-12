@@ -22,12 +22,11 @@ var entityCentres = {
 	};
 
 var amountCenters = { 	
-	var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
-            Val1: {x: 250, y: h / 3 - 20}, 			
-            Val2: {x: 380, y: h / 3 + 200}, 			
-            Val3: {x: 480, y: h / 3 - 20}, 			
-            Val4: {x: 630, y: h / 3 + 200}, 			
-            Val5: {x: 750, y: h / 3 - 30} 			
+            Tier1: {x: 250, y: h / 3 - 20}, 			
+            Tier2: {x: 380, y: h / 3 + 200}, 			
+            Tier3: {x: 480, y: h / 3 - 20}, 			
+            Tier4: {x: 630, y: h / 3 + 200}, 			
+            Tier5: {x: 750, y: h / 3 - 30} 			
 }; 
 
 var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
@@ -373,7 +372,7 @@ function display(data) {
       nodes.push(node)
 	});
 
-	console.log(nodes);
+	//console.log(nodes);
 
 	force = d3.layout.force()
 		.nodes(nodes)

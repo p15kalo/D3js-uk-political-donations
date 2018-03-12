@@ -146,19 +146,19 @@ li {
     top: 30px; 			
 } 			
 
- var amountCenters = {
+ /*var amountCenters = {
 	tier1: {x: 250, y: h / 3},
 	tier2: {x: 380, y: h / 3},
 	tier3: {x: 480, y: h / 3},
 	tier4: {x: 630, y: h / 3},
 	tier5: {x: 750, y: h / 3}
 };  
-
+*/
 .zoom {
 	transition: all .2s ease-in-out;
 	z-index: 0;
 	}
-	.zoom:hover {
+.zoom:hover {
 	transform: scale(1.25);
 	z-index: 2;
 	padding: 2px;

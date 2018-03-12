@@ -32,7 +32,8 @@ var amountCenters = {
 var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
 
 var svgCentre = { 
-    x: w / 3.6, y: h / 2
+    x: w / 3.6, 
+    y: h / 2
   };
 
 var svg = d3.select("#chart").append("svg")

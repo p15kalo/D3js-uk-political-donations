@@ -22,11 +22,11 @@ var entityCentres = {
 	};
 
 var amountCenters = { 	
-            Tier1: {x: 250, y: h / 3 - 20}, 			
-            Tier2: {x: 380, y: h / 3 + 200}, 			
-            Tier3: {x: 480, y: h / 3 - 20}, 			
-            Tier4: {x: 630, y: h / 3 + 200}, 			
-            Tier5: {x: 750, y: h / 3 - 30} 			
+            tier1: {x: 250, y: h / 3 - 20}, 			
+            tier2: {x: 380, y: h / 3 + 200}, 			
+            tier3: {x: 480, y: h / 3 - 20}, 			
+            tier4: {x: 630, y: h / 3 + 200}, 			
+            tier5: {x: 750, y: h / 3 - 30} 			
 }; 
 
 var fill = d3.scale.ordinal().range(["#7fff00", "#ffd700", "#26cdcd"]);
@@ -116,8 +116,9 @@ function start() {
 		.attr("r", 0)
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
-		.on("mouseout", mouseout);
-		.on("click", function(d) { 			
+		.on("mouseout", mouseout)
+		.on("click", function(d) { 
+		console.log("Hello");
                  window.open('http://google.com/search?q='+d.donor); }); 
 		// Alternative title based 'tooltips'
 		// node.append("title")
@@ -149,7 +150,7 @@ function partyGroup() {
 		.charge(function(d) { return -Math.pow(d.radius, 2.0) / 3; })
 		.on("tick", parties)
 		.start();
-		
+		//.colourByParty();
 }
 
 function donorType() {
@@ -297,8 +298,7 @@ function moveToFunds(alpha) {
 			centreY = 380;
 		}
 		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1; 	
-
-                d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1; 			
+		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1; 			
         }; 			
 } 			
 			
@@ -440,18 +440,4 @@ $(document).ready(function() {
     });
     return d3.csv("data/7500up.csv", display);
 
-});
-
-$(document).ready(function() { 	
- 
-  var oldSize = parseFloat($(".content").css('font-size')); 			
-  var newSize = oldSize  * 1.3; 			
-  $(".content").hover( 			
-    function() { 			
-     $(".content").animate({ fontSize: newSize}, 200); 			
-    }, 			
-	    function() { 			
-	    $(".content").animate({ fontSize: oldSize}, 200); 			
-   } 			
- ); 			
 });

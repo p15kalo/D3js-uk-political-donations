@@ -121,27 +121,27 @@ li {
     position: absolute; 			
 } 			
 			
-#1, #2, #3, #4, #5{ 			
+#Tier1, #Tier2, #Tier3, #Tier4, #Tier5{ 			
     position: absolute; 			
     width: 400px; 			
 } 						
-#1{ 			
+#Tier1{ 			
     left: 30px; 			
     top: 30px; 			
 } 			
-#2{ 			
+#Tier2{ 			
     left: 250px; 			
     top: 400px; 			
 } 			
-#3{ 			
+#Tier3{ 			
     left: 420px; 			
     top: 30px; 			
 } 			
-#4{ 			
+#Tier4{ 			
     left: 630px; 			
     top: 400px; 			
 } 			
-#5{ 			
+#Tier5{ 			
     left: 790px; 			
     top: 30px; 			
 } 			

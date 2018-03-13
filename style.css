@@ -131,7 +131,7 @@ li {
 			
 #tier1, #tier2, #tier3, #tier4, #tier5{ 			
     position: absolute; 			
-    width: 400px; 			
+    width: 250px; 			
 } 						
 #tier1{ 			
     left: 30px; 			
@@ -165,7 +165,7 @@ li {
 .zoom {
 	transition: all .2s ease-in-out;
 	z-index: 0;
-	}
+}
 .zoom:hover {
 	transform: scale(1.25);
 	z-index: 2;

@@ -357,6 +357,7 @@ function mouseout() {
 
 		d3.select(".tooltip")
 			.style("display", "none");
+		responsiveVoice.cancel();
 		}
 
 $(document).ready(function() {

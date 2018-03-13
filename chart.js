@@ -118,9 +118,7 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout)
-		.on("click", function(d) { 
-		console.log("Hello");
-                 window.open('http://google.com/search?q='+d.donor); }); 
+		.on("click", search) 
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//	.text(function(d) { return d.donor; });
@@ -187,9 +185,8 @@ function tiers(t) {
 
 function parties(e) {
 	node.each(moveToParties(e.alpha));
-
-		node.attr("cx", function(d) { return d.x; })
-			.attr("cy", function(d) {return d.y; });
+	node.attr("cx", function(d) { return d.x; })
+		.attr("cy", function(d) {return d.y; });
 }
 
 function entities(e) {
@@ -390,21 +387,12 @@ function mouseover(d, i) {
 	var party = d.partyLabel;
 	var entity = d.entityLabel;
 	var offset = $("svg").offset();
-	
+	// image url that want to check
+	var imageFile = "https://raw.githubusercontent.com/ioniodi/D3js-uk-political-donations/master/photos/" + donor + ".ico";
 
-
-	// image url that want to checkvar imageFile = "https://raw.githubusercontent.com/ioniodi/D3js-uk-political-donations/master/photos/" + donor + ".ico";
-
-	
-	
 	// *******************************************
 	
-	
-	
 
-	
-
-	
 	var infoBox = "<p> Source: <b>" + donor + "</b> " +  "<span><img src='" + imageFile + "' height='42' width='42' onError='this.src=\"https://github.com/favicon.ico\";'></span></p>" 	
 	
 	 							+ "<p> Recipient: <b>" + party + "</b></p>"
@@ -431,12 +419,12 @@ function mouseout() {
 		d3.select(".tooltip")
 			.style("display", "none");
 	    responsiveVoice.cancel();
-		}
+}
 
 $(document).ready(function() {
-		d3.selectAll(".switch").on("click", function(d) {
-      var id = d3.select(this).attr("id");
-      return transition(id);
+	d3.selectAll(".switch").on("click", function(d) {
+        var id = d3.select(this).attr("id");
+        return transition(id);
     });
     return d3.csv("data/7500up.csv", display);
 

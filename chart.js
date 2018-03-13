@@ -370,7 +370,7 @@ function display(data) {
       nodes.push(node)
 	});
 
-	console.log(nodes);
+	//console.log(nodes);
 
 	force = d3.layout.force()
 		.nodes(nodes)

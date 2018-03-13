@@ -99,7 +99,7 @@ function transition(name) {
            	 $("#view-by-amount").fadeIn(1000); 			
             	return amountTier();
 	}
-}
+
 
 function start() {
 

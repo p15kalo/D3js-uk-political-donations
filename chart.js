@@ -79,7 +79,7 @@ function transition(name) {
 		$("#view-by-amount").fadeOut(250); 
 		return donorType();
 	}
-	if (name === "group-by-money-source")
+	if (name === "group-by-money-source"){
 		$("#initial-content").fadeOut(250);
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
@@ -117,8 +117,8 @@ function start() {
 		.attr("r", 0)
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
-		.on("mouseout", mouseout)
 		.on("click", search) 
+		.on("mouseout", mouseout);
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//	.text(function(d) { return d.donor; });

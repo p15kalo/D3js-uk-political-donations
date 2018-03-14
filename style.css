@@ -4,10 +4,11 @@ body {
 }.zoom{
     -webkit-transition: font-size .5s;
     transition: font-size .5s;
+    background: white
 }
 
 .zoom:hover{
-    font-size : 2em;
+    font-size : 1.6em;
 }
 
 .zoomforh1{
@@ -16,7 +17,7 @@ body {
 }
 
 .zoomforh1:hover{
-    font-size : 2.3em;
+    font-size : 2em;
 }
 
 p {

@@ -11,12 +11,12 @@ body {
     font-size : 1.6em;
 }
 
-.zoomforh1{
+.zoom_h1{
     -webkit-transition: font-size .5s;
     transition: font-size .5s;
 }
 
-.zoomforh1:hover{
+.zoom_h1:hover{
     font-size : 2em;
 }
 

@@ -2,8 +2,8 @@ body {
     background-color: #ffffff;
     font-family:'Raleway', 'Open Sans', sans-serif;
 }.zoom{
-    -webkit-transition: font-size .5s;
-    transition: font-size .5s;
+    -webkit-transition: font-size .2s;
+    transition: font-size .2s;
    
 }
 

@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: grey;
     font-family:'Raleway', 'Open Sans', sans-serif;
 }.zoom{
     -webkit-transition: font-size .2s;
@@ -9,7 +9,7 @@ body {
 
 .zoom:hover{
     font-size : 1.6em;
-    background: white
+    background: grey
 }
 p {
     margin: 5px 0;

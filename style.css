@@ -4,22 +4,13 @@ body {
 }.zoom{
     -webkit-transition: font-size .5s;
     transition: font-size .5s;
-    background: white
+   
 }
 
 .zoom:hover{
     font-size : 1.6em;
+    background: white
 }
-
-.zoom_h1{
-    -webkit-transition: font-size .5s;
-    transition: font-size .5s;
-}
-
-.zoom_h1:hover{
-    font-size : 2em;
-}
-
 p {
     margin: 5px 0;
 }
